@@ -9,6 +9,7 @@ public class Users {
     @SequenceGenerator(name = "users_sequence", sequenceName = "users_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_sequence")
     private Long id;
+    @Column(unique = true)
     private String login;
     private String password;
 
@@ -18,6 +19,14 @@ public class Users {
     public Users(String login, String password) {
         this.login = login;
         this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLogin() {
